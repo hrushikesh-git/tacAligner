@@ -8,6 +8,17 @@ const connectDB = require('./db')
 connectDB();
 
 
+
+
+app.use(express.json({extended: false}));
+
+// get routers
+const adminRoutes = require('./routes/admin');
+
+// Routes
+app.use('/api/admin',adminRoutes);
+
+
 app.get("/",(req, res)=>{
     res.send("API Created")
 })
